@@ -21,6 +21,6 @@ select
   quantity,
   unit_price,
   -- if order_amount is null, compute a simple fallback = qty * price
-  coalesce(order_amount_raw, cast(quantity * unit_price as numeric)) as order_amount,
+  coalesce(order_amount_raw, cast(quantity * unit_price * 1 as numeric)) as order_amount,
   lower(order_status) as order_status
 from src
